@@ -22,7 +22,6 @@ var estado: EstadoPlayer
 func _ready() -> void:
 	preparar_parado()
 
-
 func _physics_process(delta: float) -> void:
 	match estado_atual:
 		EstadoPlayer.parado:
@@ -37,12 +36,12 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide()
 
-
 func ativar_gravidade (delta):
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 	
 func mover(delta):
+	atualizar_animacao()
 	if direction:
 		velocity.x = move_toward(velocity.x, direction * SPEED, 400 * delta)
 	else:
@@ -54,7 +53,7 @@ func atualizar_animacao():
 		animacao_player.flip_h = true
 	elif direction > 0:
 		animacao_player.flip_h = false
-		
+
 func preparar_parado():
 	estado_atual = EstadoPlayer.parado
 	animacao_player.play("parado")
@@ -64,20 +63,29 @@ func pode_pular():
 		return true
 	else:
 		return false
-		
+
 func pulando(delta):
 	ativar_gravidade(delta)
 	mover(delta)
 	
 	if Input.is_action_just_pressed("jump") && pode_pular():
+		preparar_pulo()
 		return
+	
 	if velocity.y > 0:
+		preparar_caindo()
 		return
 
 func parado(delta):
 	ativar_gravidade(delta)
 	mover(delta)
+	
 	if velocity.x != 0 :
+		preparar_andando()
+		return
+		
+	if Input.is_action_just_pressed("jump"):
+		preparar_pulo()
 		return
 
 func andando(delta):
@@ -87,7 +95,7 @@ func andando(delta):
 	if velocity.x == 0:
 		preparar_parado()
 		return
-		
+	
 	if Input.is_action_just_pressed("jump"):
 		preparar_pulo()
 		return
@@ -96,12 +104,12 @@ func andando(delta):
 		jump_count +=1
 		preparar_caindo()
 		return
-	
+
 func caindo(delta):
 	ativar_gravidade(delta)
 	mover(delta)
 	
-	if Input.is_action_just_pressed("pular") and pode_pular():
+	if Input.is_action_just_pressed("jump") and pode_pular():
 		preparar_pulo()
 		return
 	
@@ -113,13 +121,12 @@ func caindo(delta):
 		else:
 			preparar_andando()
 		return
-	
+
 func preparar_pulo():
 	estado_atual = EstadoPlayer.pulando
 	animacao_player.play("pulando")
 	velocity.y = JUMP_VELOCITY
 	jump_count += 1
-	
 
 func preparar_andando():
 	estado_atual = EstadoPlayer.andando

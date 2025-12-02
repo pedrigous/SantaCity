@@ -1,16 +1,11 @@
-[gd_scene load_steps=31 format=4 uid="uid://jhtbos2mucr6"]
+[gd_scene load_steps=26 format=4 uid="uid://jhtbos2mucr6"]
 
 [ext_resource type="Script" uid="uid://dwglpi4lio4e4" path="res://Scripts/parque.gd" id="1_7c1cb"]
 [ext_resource type="PackedScene" uid="uid://ipi34w80522h" path="res://Entidades/camera.tscn" id="1_ckgyh"]
 [ext_resource type="PackedScene" uid="uid://bo4iw4d28ntd6" path="res://Entidades/player.tscn" id="2_pliqn"]
-[ext_resource type="Texture2D" uid="uid://dwwf476mk051d" path="res://Background/plx-1.png" id="2_y2l38"]
 [ext_resource type="Texture2D" uid="uid://crwmu77ubi3yg" path="res://Tiles/Grass_And_Trees.png" id="3_7c1cb"]
-[ext_resource type="Texture2D" uid="uid://cq317cfs3c6as" path="res://Background/plx-2.png" id="3_cihid"]
 [ext_resource type="Texture2D" uid="uid://b7n3byd50u47f" path="res://Tiles/Tiles.png" id="4_7lotn"]
-[ext_resource type="Texture2D" uid="uid://cp8g6sw0eki4t" path="res://Background/plx-3.png" id="4_buo7k"]
-[ext_resource type="Texture2D" uid="uid://bjalyqtdiyhva" path="res://Background/plx-4.png" id="5_h4nw7"]
 [ext_resource type="Texture2D" uid="uid://sqfeaofgs1vl" path="res://Tiles/Forest Decorations.png" id="5_wbx1m"]
-[ext_resource type="Texture2D" uid="uid://d4ax846k1f3es" path="res://Background/plx-5.png" id="6_darag"]
 [ext_resource type="Texture2D" uid="uid://bq2akr6yovjtd" path="res://Tiles/height16_trees_mega_pack_cc_by_3_0.png" id="6_tl4vn"]
 [ext_resource type="Texture2D" uid="uid://lfqfegirvktq" path="res://Tiles/CdH_TILES.png" id="7_im1d2"]
 [ext_resource type="PackedScene" uid="uid://bghos5yeif643" path="res://Entidades/level_end.tscn" id="8_y2l38"]
@@ -4606,59 +4601,13 @@ script = ExtResource("1_7c1cb")
 metadata/_edit_horizontal_guides_ = [144.0]
 metadata/_edit_vertical_guides_ = [256.0]
 
-[node name="Parallax" type="Node2D" parent="."]
-visible = false
-
-[node name="01 - background" type="Parallax2D" parent="Parallax"]
-scroll_scale = Vector2(0.1, 0.1)
-repeat_size = Vector2(384, 0)
-
-[node name="Sprite2D" type="Sprite2D" parent="Parallax/01 - background"]
-position = Vector2(281, 1)
-scale = Vector2(1.4609375, 1.3472222)
-texture = ExtResource("2_y2l38")
-
-[node name="02 - midground" type="Parallax2D" parent="Parallax"]
-scroll_scale = Vector2(0.3, 0.3)
-repeat_size = Vector2(384, 0)
-
-[node name="Sprite2D" type="Sprite2D" parent="Parallax/02 - midground"]
-position = Vector2(281, 1)
-scale = Vector2(1.4609375, 1.3472222)
-texture = ExtResource("3_cihid")
-
-[node name="03 - midground" type="Parallax2D" parent="Parallax"]
-scroll_scale = Vector2(0.5, 0.5)
-repeat_size = Vector2(384, 0)
-
-[node name="Sprite2D" type="Sprite2D" parent="Parallax/03 - midground"]
-position = Vector2(281, 1)
-scale = Vector2(1.4609375, 1.3472222)
-texture = ExtResource("4_buo7k")
-
-[node name="04 - foreground" type="Parallax2D" parent="Parallax"]
-scroll_scale = Vector2(0.3, 0.3)
-repeat_size = Vector2(384, 0)
-
-[node name="Sprite2D" type="Sprite2D" parent="Parallax/04 - foreground"]
-position = Vector2(281, 1)
-scale = Vector2(1.4609375, 1.3472222)
-texture = ExtResource("5_h4nw7")
-
-[node name="05 - foreground" type="Parallax2D" parent="Parallax"]
-scroll_scale = Vector2(0.7, 0.7)
-repeat_size = Vector2(384, 0)
-
-[node name="Sprite2D" type="Sprite2D" parent="Parallax/05 - foreground"]
-position = Vector2(281, 1)
-scale = Vector2(1.4609375, 1.3472222)
-texture = ExtResource("6_darag")
+[node name="Node2D" type="Node2D" parent="."]
 
 [node name="camera" parent="." instance=ExtResource("1_ckgyh")]
 
 [node name="player" parent="." instance=ExtResource("2_pliqn")]
 z_index = 7
-position = Vector2(38, 95)
+position = Vector2(19, 91)
 
 [node name="Plataforma" type="Node2D" parent="."]
 
