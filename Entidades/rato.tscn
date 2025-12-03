@@ -1,0 +1,49 @@
+[gd_scene load_steps=7 format=3 uid="uid://vryi52o34sym"]
+
+[ext_resource type="Texture2D" uid="uid://dedf1pnpvkydh" path="res://Sprites/mouse.png" id="1_gpj0k"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2tufu"]
+atlas = ExtResource("1_gpj0k")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tbncf"]
+atlas = ExtResource("1_gpj0k")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5ssqq"]
+atlas = ExtResource("1_gpj0k")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rk5jp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2tufu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tbncf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5ssqq")
+}],
+"loop": true,
+"name": &"default",
+"speed": 7.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m54ji"]
+size = Vector2(25, 15)
+
+[node name="Rato" type="Node2D"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
+position = Vector2(1, 3)
+sprite_frames = SubResource("SpriteFrames_rk5jp")
+autoplay = "default"
+frame_progress = 0.8188458
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(-1.5, 11.5)
+shape = SubResource("RectangleShape2D_m54ji")
