@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=4 uid="uid://jhtbos2mucr6"]
+[gd_scene load_steps=33 format=4 uid="uid://jhtbos2mucr6"]
 
 [ext_resource type="Script" uid="uid://dwglpi4lio4e4" path="res://Scripts/parque.gd" id="1_7c1cb"]
 [ext_resource type="PackedScene" uid="uid://ipi34w80522h" path="res://Entidades/camera.tscn" id="1_ckgyh"]
@@ -19,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://dr3cm7rsyqe5r" path="res://Entidades/plataforma.tscn" id="11_7lotn"]
 [ext_resource type="PackedScene" uid="uid://7nx0pl7f146w" path="res://Entidades/plataforma_cima_baixo.tscn" id="12_wbx1m"]
 [ext_resource type="PackedScene" uid="uid://dydj5aldyxept" path="res://Entidades/rato_andando.tscn" id="19_h4nw7"]
+[ext_resource type="PackedScene" uid="uid://ccfp408s07nsh" path="res://Entidades/portal.tscn" id="20_darag"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_f865n"]
 texture = ExtResource("3_7c1cb")
@@ -4706,3 +4707,15 @@ position = Vector2(5695, 30)
 
 [node name="rato_andando" parent="." instance=ExtResource("19_h4nw7")]
 position = Vector2(2048, 96)
+
+[node name="Portal" parent="." instance=ExtResource("20_darag")]
+position = Vector2(152, 80)
+origem = "agua"
+destino = "arvore"
+distancia = -15
+
+[node name="Portal2" parent="." instance=ExtResource("20_darag")]
+position = Vector2(8496, 72)
+origem = "arvore"
+destino = "agua"
+distancia = 15

@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://ccfp408s07nsh"]
+
+[ext_resource type="Script" uid="uid://dhy4bkhna2dj4" path="res://Scripts/portal.gd" id="1_6oxiw"]
+[ext_resource type="Texture2D" uid="uid://cgyhudd2oxwiq" path="res://Tiles/tiles_spritesheet.png" id="2_xrif6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6oxiw"]
+size = Vector2(11.75, 101)
+
+[node name="Portal" type="Node2D" groups=["portais"]]
+script = ExtResource("1_6oxiw")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_xrif6")
+region_enabled = true
+region_rect = Rect2(648, 392, 72, 112)
+
+[node name="Area2D" type="Area2D" parent="." groups=["portais"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(1, 2.5)
+shape = SubResource("RectangleShape2D_6oxiw")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
