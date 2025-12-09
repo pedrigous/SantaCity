@@ -56,6 +56,7 @@ entrar={
 2d_physics/layer_3="arvores"
 2d_physics/layer_4="LevelEnd"
 2d_physics/layer_5="PlataformasMoveis"
+2d_physics/layer_6="Inimigos"
 
 [rendering]
 
